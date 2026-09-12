@@ -1,0 +1,8 @@
+{
+  "framework": null,
+  "functions": {
+    "api/analyze.js": {
+      "maxDuration": 60
+    }
+  }
+}

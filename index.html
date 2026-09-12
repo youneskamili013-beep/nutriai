@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101512">
+  <title>NutriAI | Analyse nutritionnelle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="NutriAI accueil">
+      <span class="brand-mark">✦</span><span>Nutri<span class="brand-accent">AI</span></span>
+    </a>
+    <div class="topbar-actions">
+      <span class="free-badge"><span class="status-dot"></span> Gratuit</span>
+      <button class="account-button" id="accountBtn" type="button">Se connecter</button>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="intro">
+      <p class="eyebrow"><span></span> Nutrition intelligente</p>
+      <h1>Comprenez ce qu'il y a<br><em>dans votre assiette.</em></h1>
+      <p class="intro-copy">Une photo suffit pour obtenir une estimation claire de vos calories et macronutriments.</p>
+    </section>
+
+    <section class="analysis-panel panel" aria-labelledby="analysis-title">
+      <div class="section-heading">
+        <div>
+          <span class="step-label">01 / ANALYSE GRATUITE</span>
+          <h2 id="analysis-title">Scannez votre plat</h2>
+        </div>
+        <span class="ai-chip">✦ IA</span>
+      </div>
+
+      <div class="upload-area" id="uploadArea">
+        <input type="file" id="imageInput" accept="image/*" capture="environment">
+        <div class="upload-placeholder" id="uploadPlaceholder">
+          <div class="upload-icon">↥</div>
+          <strong>Déposez une photo ici</strong>
+          <span>ou prenez une photo avec votre téléphone</span>
+          <label class="secondary-button" for="imageInput">Choisir une image <span>→</span></label>
+        </div>
+        <div class="preview-wrap hidden" id="previewWrap">
+          <img id="imagePreview" alt="Aperçu du plat sélectionné">
+          <div class="preview-overlay"><span>Photo prête à analyser</span><button class="icon-button" id="removeImage" type="button" aria-label="Retirer la photo">×</button></div>
+        </div>
+      </div>
+      <p class="file-status" id="fileStatus">Formats acceptés : JPG, PNG ou HEIC · 10 Mo max.</p>
+      <button class="primary-button" id="analyzeBtn" type="button" disabled><span>✦</span> Analyser le plat</button>
+
+      <div class="loading-state hidden" id="loadingState" aria-live="polite"><span class="loader"></span><span>NutriAI observe votre assiette...</span></div>
+      <div class="result hidden" id="resultCard" aria-live="polite">
+        <div class="result-topline"><span class="success-label"><span>✓</span> Démonstration terminée</span><span>Valeurs indicatives</span></div>
+        <div class="dish-line"><div><span class="result-kicker">EXEMPLE D'ANALYSE</span><h3 id="platName">Résultat nutritionnel indicatif</h3></div><span class="confidence">Mode démo</span></div>
+        <div class="calorie-total"><strong id="caloriesVal">520</strong><span>kcal</span></div>
+        <div class="macro-grid">
+          <div class="macro-card protein"><span class="macro-icon">P</span><span>Protéines</span><strong id="protVal">42 g</strong><div class="macro-bar"><i></i></div></div>
+          <div class="macro-card carbs"><span class="macro-icon">G</span><span>Glucides</span><strong id="carbVal">51 g</strong><div class="macro-bar"><i></i></div></div>
+          <div class="macro-card fats"><span class="macro-icon">L</span><span>Lipides</span><strong id="fatVal">14 g</strong><div class="macro-bar"><i></i></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-strip" aria-label="Résumé nutritionnel">
+      <div class="dashboard-heading"><span class="step-label">02 / VOTRE RYTHME</span><span class="dashboard-date" id="dashboardDate"></span></div>
+      <div class="dashboard-grid">
+        <div><span class="dashboard-value">1 840</span><span class="dashboard-unit">kcal restantes</span><div class="progress-track"><i></i></div></div>
+        <div><span class="dashboard-value">68<span class="dashboard-small">%</span></span><span class="dashboard-unit">objectif du jour</span><div class="progress-track orange"><i></i></div></div>
+        <div class="dashboard-note"><span class="note-icon">✦</span><span><strong>Petit rappel</strong><small>Ajoutez une photo pour continuer votre suivi.</small></span></div>
+      </div>
+    </section>
+
+    <section class="premium-panel panel" aria-labelledby="premium-title">
+      <div class="premium-glow"></div>
+      <div class="premium-content">
+        <span class="premium-label">NUTRIAI PRO <span>PREMIUM</span></span>
+        <div class="lock" aria-hidden="true">🔒</div>
+        <h2 id="premium-title">Programme Alimentaire<br><em>Sur-Mesure</em></h2>
+        <p>Transformez vos analyses en un plan qui vous ressemble.</p>
+        <ul class="feature-list">
+          <li><span>✦</span><div><strong>Menus adaptés à votre objectif</strong><small>Sèche ou prise de masse</small></div></li>
+          <li><span>✦</span><div><strong>Liste de courses automatique</strong><small>Organisée, prête à l'emploi</small></div></li>
+          <li><span>✦</span><div><strong>Suivi quotidien du poids</strong><small>Vos progrès, en un coup d'œil</small></div></li>
+        </ul>
+        <button class="premium-button" id="subscribeBtn" type="button">Débloquer mon plan <span>9,99 € / mois&nbsp; →</span></button>
+        <small class="secure-note">Annulable à tout moment · Paiement sécurisé</small>
+      </div>
+    </section>
+    <button class="reset-button hidden" id="resetBtn" type="button">↺ Réinitialiser l'analyse</button>
+  </main>
+  <div class="toast hidden" id="toast" role="status"></div>
+  <div class="modal-backdrop hidden" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="auth-modal">
+      <button class="modal-close" id="closeAuth" type="button" aria-label="Fermer">×</button>
+      <span class="auth-kicker">NUTRIAI COMPTE</span>
+      <h2 id="authTitle">Votre nutrition,<br><em>à votre rythme.</em></h2>
+      <p id="authIntro">Connectez-vous pour retrouver vos analyses et votre progression.</p>
+      <form id="authForm">
+        <label for="authEmail">Adresse email</label>
+        <input id="authEmail" type="email" autocomplete="email" placeholder="vous@exemple.com" required>
+        <label for="authPassword">Mot de passe</label>
+        <input id="authPassword" type="password" autocomplete="current-password" placeholder="6 caractères minimum" minlength="6" required>
+        <button class="primary-button" type="submit" id="authSubmit">Se connecter <span>→</span></button>
+      </form>
+      <button class="auth-switch" id="authSwitch" type="button">Créer un compte</button>
+      <small class="auth-note">Compte local de démonstration · aucune donnée envoyée sans votre accord</small>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
